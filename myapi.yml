@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: fastapipod
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        editor: vscode
+        test: yolo
+    spec:
+      containers:
+      - name: myfastapitest
+        image: myfastapitest:latest
+        #only set this to nbever if you want to use images you build locally
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "500Mi"
